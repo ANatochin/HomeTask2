@@ -27,12 +27,14 @@ if (count($phraseArr1)>=4){
     echo ' В предложении недостаточно слов. ';
 }
 
-echo $phrase[16]; // вывод 17го символа из строки
+// echo $phrase[16];
+
+echo mb_substr($phrase,16,1) . ' '; // вывод 17го символа из строки
 
 $upPhrase = mb_convert_case($phrase, MB_CASE_TITLE, "UTF-8"); // Первая буква заглавная во всех словах
 echo $upPhrase . ' ';
 
-$phraseLength = strlen($phrase); // длина строки
+$phraseLength = mb_strlen($phrase,'UTF-8'); // длина строки
 echo ($phraseLength . ' ');
 
 
@@ -48,7 +50,7 @@ if (true == 1){
 $falTr = (false === 0) ? ' false тождественно 0 ' : ' false не тождественно 0 ';
 echo $falTr;
 
-$longestStr = (strlen('three')>strlen('три')) ? ' three длиннее чем три ':' три длиннее чем three ';
+$longestStr = (mb_strlen('three')>mb_strlen('три','UTF-8')) ? ' three длиннее чем три ':' три длиннее чем three ';
 echo $longestStr;
 
 if ((125*13+7)>(223+28*2)){
